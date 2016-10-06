@@ -27,32 +27,62 @@ body {
 .wrap {
   width: 340px;
   height:auto;
-  margin: auto;
   position:relative;
+  margin: auto;
   top: 25px;
   display: none;
 }
 
-#playerChoice{
-  width: 340px;
+#playArea {
+  background-color: #3e9471;
+  position: relative;
+  width:340px;
   height: auto;
+}
+
+#board {
+  background-color: #3e9471;
+  position:absolute;
+  top: 0;
+  left: 0;
+}
+
+#playerChoice {
   background-color: #3e9471;
   border: solid 1px #000000;
-  border-radius: 10px
+  border-radius: 10px;
+  position:absolute;
+  top: 0;
+  left: 0;
+}
+
+#playAgain {
+  background-color: #3e9471;
+  border: solid 1px #000000;
+  border-radius: 10px;
+  position:absolute;
+  top: 0;
+  left: 0;
 }
 
 .playerSelection {
   font-size: 30px;
   background-color: #3e9471;
   border: none;
+  top: 0;
 }
 
-.controls {
-    position: absolute;
-    top: 300px;
-    left: 0px;
-    width: 400px;
-    height: 50px;
+#statusBar {
+  position: absolute;
+  top: 330px;
+  left: 10px;
+  width: 320px;
+  height: 35px;
+  background-color: #ffffff;
+  border: solid 1px #000000;
+  font-size: 30px;
+  line-height: 30px;
+  display: none;
 }
 
 #start {
@@ -66,79 +96,79 @@ body {
   position: absolute;
 }
 
-#cell_11 {
+#cell_00 {
   top: 0px;
   left: 0px;
   border-top:10px solid #b0d0ff;
   border-right:10px solid #ffffff;
   border-bottom:10px solid #ffffff;
   border-left:10px solid #b0d0ff;
+}
+
+#cell_01 {
+  top: 0px;
+  left: 110px;
+  border-top:10px solid #b0d0ff;
+  border-right:10px solid #ffffff;
+  border-bottom:10px solid #ffffff;
+  border-left:10px solid #ffffff;
+}
+
+#cell_02 {
+  top: 0px;
+  left: 220px;
+  border-top:10px solid #b0d0ff;
+  border-right:10px solid #b0d0ff;
+  border-bottom:10px solid #ffffff;
+  border-left:10px solid #ffffff;
+}
+
+#cell_10 {
+  top: 110px;
+  left: 0px;
+  border-top:10px solid #ffffff;
+  border-right:10px solid #ffffff;
+  border-bottom:10px solid #ffffff;
+  border-left:10px solid #b0d0ff;
+}
+
+#cell_11 {
+  top: 110px;
+  left: 110px;
+  border-top:10px solid #ffffff;
+  border-right:10px solid #ffffff;
+  border-bottom:10px solid #ffffff;
+  border-left:10px solid #ffffff;
 }
 
 #cell_12 {
-  top: 0px;
-  left: 110px;
-  border-top:10px solid #b0d0ff;
-  border-right:10px solid #ffffff;
+  top: 110px;
+  left: 220px;
+  border-top:10px solid #ffffff;
+  border-right:10px solid #b0d0ff;
   border-bottom:10px solid #ffffff;
   border-left:10px solid #ffffff;
 }
 
-#cell_13 {
-  top: 0px;
-  left: 220px;
-  border-top:10px solid #b0d0ff;
-  border-right:10px solid #b0d0ff;
-  border-bottom:10px solid #ffffff;
-  border-left:10px solid #ffffff;
+#cell_20 {
+  top: 220px;
+  left: 0px;
+  border-top:10px solid #ffffff;
+  border-right:10px solid #ffffff;
+  border-bottom:10px solid #b0d0ff;
+  border-left:10px solid #b0d0ff;
 }
 
 #cell_21 {
-  top: 110px;
-  left: 0px;
+  top: 220px;
+  left: 110px;
   border-top:10px solid #ffffff;
   border-right:10px solid #ffffff;
-  border-bottom:10px solid #ffffff;
-  border-left:10px solid #b0d0ff;
+  border-bottom:10px solid #b0d0ff;
+  border-left:10px solid #ffffff;
 }
 
 #cell_22 {
-  top: 110px;
-  left: 110px;
-  border-top:10px solid #ffffff;
-  border-right:10px solid #ffffff;
-  border-bottom:10px solid #ffffff;
-  border-left:10px solid #ffffff;
-}
-
-#cell_23 {
-  top: 110px;
-  left: 220px;
-  border-top:10px solid #ffffff;
-  border-right:10px solid #b0d0ff;
-  border-bottom:10px solid #ffffff;
-  border-left:10px solid #ffffff;
-}
-
-#cell_31 {
-  top: 220px;
-  left: 0px;
-  border-top:10px solid #ffffff;
-  border-right:10px solid #ffffff;
-  border-bottom:10px solid #b0d0ff;
-  border-left:10px solid #b0d0ff;
-}
-
-#cell_32 {
-  top: 220px;
-  left: 110px;
-  border-top:10px solid #ffffff;
-  border-right:10px solid #ffffff;
-  border-bottom:10px solid #b0d0ff;
-  border-left:10px solid #ffffff;
-}
-
-#cell_33 {
   top: 220px;
   left: 220px;
   border-top:10px solid #ffffff;

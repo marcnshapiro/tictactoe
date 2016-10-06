@@ -21,26 +21,39 @@
     <center>
       <div>
         <h1>Tic-Tac-Toe</h1>
-        <h3>Just try and beat me!</h3>
+        <h3 id=msg>Just try and beat me!</h3>
 
-        <div id="board" class="wrap">
-          <div id="cell_11" class="cell"></div>
-          <div id="cell_12" class="cell"></div>
-          <div id="cell_13" class="cell"></div>
-          <div id="cell_21" class="cell"></div>
-          <div id="cell_22" class="cell"></div>
-          <div id="cell_23" class="cell"></div>
-          <div id="cell_31" class="cell"></div>
-          <div id="cell_32" class="cell"></div>
-          <div id="cell_33" class="cell"></div>
-        </div>
+        <br /><br />
 
-        <div id="playerChoice" class="wrap">
-          <h3>Do you want to play</h3>
-            <button id="X" class="btn btn-custom playerSelection">X</button>
-            <h4>or</h4>
-            <button id="O" class="btn btn-custom playerSelection">O</button>
-            <br /><br />
+        <div id="playArea">
+          <div id="board" class="wrap">
+            <div id="cell_00" class="cell"></div>
+            <div id="cell_01" class="cell"></div>
+            <div id="cell_02" class="cell"></div>
+            <div id="cell_10" class="cell"></div>
+            <div id="cell_11" class="cell"></div>
+            <div id="cell_12" class="cell"></div>
+            <div id="cell_20" class="cell"></div>
+            <div id="cell_21" class="cell"></div>
+            <div id="cell_22" class="cell"></div>
+            <div id="statusBar"></div>
+          </div>
+
+          <div id="playerChoice" class="wrap">
+            <h3>Do you want to play</h3>
+              <button id="X" class="btn btn-custom playerSelection">X</button>
+              <h4>or</h4>
+              <button id="O" class="btn btn-custom playerSelection">O</button>
+              <br /><br />
+          </div>
+
+          <div id="playAgain" class="wrap">
+            <h3>Do you want to play again?</h3>
+              <button id="Yes" class="btn btn-custom playerSelection">Yes</button>
+              <h4>or</h4>
+              <button id="No" class="btn btn-custom playerSelection">No</button>
+              <br /><br />
+          </div>
         </div>
       </div>
     </center>
