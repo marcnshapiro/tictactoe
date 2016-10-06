@@ -33,6 +33,11 @@ body {
   display: none;
 }
 
+#msg {
+  width:340px;
+  height: auto;
+}
+
 #playArea {
   background-color: #3e9471;
   position: relative;

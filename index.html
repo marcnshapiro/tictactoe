@@ -1,4 +1,24 @@
 <!DOCTYPE html>
+
+<!--
+I tried several methods of determining the best move for the computer before
+I finally selected this one.  Each of my earlier methods worked fine to a point,
+but then broke down into too many edge cases to be really workable.  This implimentation
+uses a heuristic method to determine the best play, looking ahead two moves (the
+computer's move and one player's move).  It is based on C code found at:
+
+    https://kartikkukreja.wordpress.com/2013/03/30/heuristic-function-for-tic-tac-toe/
+
+The author claims that this is unbeatable, and it may be.  I was unable to beat it,
+myself, but I was able to play it to a draw more often than I should have.  This
+was due to the fact that the strict heuristics had the computer move in the center
+if it went first, instead of taking a corner.  This left four out of eight moves for the
+human that could then be played to a draw.  By putting in a check for the first move and
+then playing in an of the four corners if so, it reduces the human's moves which allow
+playing to a draw from four to only one, thus incresing the computer's chance of a win
+instead of only a draw.
+-->
+
 <html >
   <head>
     <meta charset="utf-8">
