@@ -263,57 +263,64 @@ var myMove = function() {
   var opponent = (turn & 1) ? 'O' : 'X';
   var board = [];
 
+  console.log("player: " + player)
+  console.log("opponent: " + opponent)
+
   if (!gameOver) {
     // Fill linear array "board" from displayed board to use for calculating best move
-    for (i=0; i<9; i++) board[i] = 2;
+    if (turn === 1) {
+      best = 0;
+    } else {
+      for (i=0; i<9; i++) board[i] = 2;
 
-    if ($("#cell_00").html() === '<img src="resources/X.png">') board[0] = 3;
-    if ($("#cell_01").html() === '<img src="resources/X.png">') board[1] = 3;
-    if ($("#cell_02").html() === '<img src="resources/X.png">') board[2] = 3;
-    if ($("#cell_10").html() === '<img src="resources/X.png">') board[3] = 3;
-    if ($("#cell_11").html() === '<img src="resources/X.png">') board[4] = 3;
-    if ($("#cell_12").html() === '<img src="resources/X.png">') board[5] = 3;
-    if ($("#cell_20").html() === '<img src="resources/X.png">') board[6] = 3;
-    if ($("#cell_21").html() === '<img src="resources/X.png">') board[7] = 3;
-    if ($("#cell_22").html() === '<img src="resources/X.png">') board[8] = 3;
+      if ($("#cell_00").html() === '<img src="resources/X.png">') board[0] = 3;
+      if ($("#cell_01").html() === '<img src="resources/X.png">') board[1] = 3;
+      if ($("#cell_02").html() === '<img src="resources/X.png">') board[2] = 3;
+      if ($("#cell_10").html() === '<img src="resources/X.png">') board[3] = 3;
+      if ($("#cell_11").html() === '<img src="resources/X.png">') board[4] = 3;
+      if ($("#cell_12").html() === '<img src="resources/X.png">') board[5] = 3;
+      if ($("#cell_20").html() === '<img src="resources/X.png">') board[6] = 3;
+      if ($("#cell_21").html() === '<img src="resources/X.png">') board[7] = 3;
+      if ($("#cell_22").html() === '<img src="resources/X.png">') board[8] = 3;
 
-    if ($("#cell_00").html() === '<img src="resources/O.png">') board[0] = 5;
-    if ($("#cell_01").html() === '<img src="resources/O.png">') board[1] = 5;
-    if ($("#cell_02").html() === '<img src="resources/O.png">') board[2] = 5;
-    if ($("#cell_10").html() === '<img src="resources/O.png">') board[3] = 5;
-    if ($("#cell_11").html() === '<img src="resources/O.png">') board[4] = 5;
-    if ($("#cell_12").html() === '<img src="resources/O.png">') board[5] = 5;
-    if ($("#cell_20").html() === '<img src="resources/O.png">') board[6] = 5;
-    if ($("#cell_21").html() === '<img src="resources/O.png">') board[7] = 5;
-    if ($("#cell_22").html() === '<img src="resources/O.png">') board[8] = 5;
+      if ($("#cell_00").html() === '<img src="resources/O.png">') board[0] = 5;
+      if ($("#cell_01").html() === '<img src="resources/O.png">') board[1] = 5;
+      if ($("#cell_02").html() === '<img src="resources/O.png">') board[2] = 5;
+      if ($("#cell_10").html() === '<img src="resources/O.png">') board[3] = 5;
+      if ($("#cell_11").html() === '<img src="resources/O.png">') board[4] = 5;
+      if ($("#cell_12").html() === '<img src="resources/O.png">') board[5] = 5;
+      if ($("#cell_20").html() === '<img src="resources/O.png">') board[6] = 5;
+      if ($("#cell_21").html() === '<img src="resources/O.png">') board[7] = 5;
+      if ($("#cell_22").html() === '<img src="resources/O.png">') board[8] = 5;
 
-    for(k = 0; k < 9; k++)  {
-      if(board[k] === 2) { // found a blank square
-        board[k] = (turn & 1) ? 3 : 5;  // try playing this move
-        utility = evaluatePosition(board, player);
+      for(k = 0; k < 9; k++)  {
+        if(board[k] === 2) { // found a blank square
+          board[k] = (turn & 1) ? 3 : 5;  // try playing this move
+          utility = evaluatePosition(board, player);
 
-        worst = -10000;     // find the worst your opponent could do
-        for (i = 0; i < 9; i++)  {
-          if(board[i] === 2) { // simulate a move by opponent
-            board[i] = (turn & 1) ? 5 : 3;
-            tmp = evaluatePosition(board, opponent);
-            if(tmp > worst)
-              worst = tmp;
-            board[i] = 2;
+          worst = -10000;     // find the worst your opponent could do
+          for (i = 0; i < 9; i++)  {
+            if(board[i] === 2) { // simulate a move by opponent
+              board[i] = (turn & 1) ? 5 : 3;
+              tmp = evaluatePosition(board, opponent);
+              if(tmp > worst)
+                worst = tmp;
+              board[i] = 2;
+            }
           }
+
+          // opponent had no legal move
+          if(worst === -10000)
+            worst = 0;
+
+          utility -= worst;
+          if(utility > heuristic) {
+            heuristic = utility;
+            best = k;
+          }
+
+          board[k] = 2;
         }
-
-        // opponent had no legal move
-        if(worst === -10000)
-          worst = 0;
-
-        utility -= worst;
-        if(utility > heuristic) {
-          heuristic = utility;
-          best = k;
-        }
-
-        board[k] = 2;
       }
     }
 
